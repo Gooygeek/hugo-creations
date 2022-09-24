@@ -1,0 +1,27 @@
+{{ define "main" }}
+  <div class="list-main">
+    <div class="list-title">
+      <h1>{{ .Title }}</h1>
+    </div>
+    <div class="list-container">
+      {{ range .Pages.ByPublishDate.Reverse }}
+        <p>
+          {{ partial "metadata.html" . }}
+        </p>
+      {{ end }}
+    </div>
+  </div>
+
+  <style>
+    .list-title {
+      padding: 1em;
+      text-align: center;
+      background: #c4c4c4;
+    }
+
+    .list-container {
+      width: 80vw;
+      margin: auto;
+    }
+  </style>
+{{ end }}

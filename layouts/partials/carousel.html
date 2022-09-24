@@ -1,0 +1,45 @@
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    {{ range  $index, $page := . }}
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $index }}" class="{{ if eq $index 0 }} active {{ end }}" aria-current="true" aria-label="Slide {{ add $index 1 }}"></button>
+    {{ end }}
+  </div>
+  <div class="carousel-inner">
+    {{ range  $index, $page := . }}
+      <a href="{{ $page.RelPermalink }}">
+        <div class="carousel-item {{ if eq $index 0 }} active {{ end }}">
+          <img src="{{ $page.RelPermalink }}/{{ $page.Params.heroImage }}" class="d-block w-100" alt="..." {{ with $page.Params.heroImageBackgroundColor }} style="background: {{ . }}" {{ end }}>
+          <div class="carousel-caption d-none d-md-block">
+            <span class="badge text-bg-dark fs-5">
+              {{ $page.Title }}
+            </span>
+            <br>
+            <span class="badge text-bg-dark fs-6">
+              {{ $page.Summary }}
+            </span>
+          </div>
+        </div>
+      </a>
+    {{ end }}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<style>
+  .carousel-inner {
+    border-radius: 0.375rem;
+  }
+
+  .carousel-item img {
+    height: 20em;
+    object-fit: contain;
+    background: cornflowerblue;
+  }
+</style>

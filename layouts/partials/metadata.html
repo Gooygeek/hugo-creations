@@ -1,0 +1,45 @@
+<div class="metadata text-left shadow">
+  <div class="row">
+    <div class="col">
+      <a href="{{ .RelPermalink }}">
+        <img src="{{ .RelPermalink }}/{{ .Params.heroImage }}" class="hero-image d-block " alt="..." {{ with .Params.heroImageBackgroundColor }} style="background: {{ . }}" {{ end }}>
+      </a>
+    </div>
+    <div class="col">
+      <a href="{{ .RelPermalink }}" class="title-link">
+        <h1>{{ .Title }}</h1>
+      </a>
+      <p>{{ .Summary }}</p>
+      {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+      {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+      <i data-feather="calendar"></i>
+      <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+      <br>
+      {{ with .Params.tags }}
+        <i data-feather="tag"></i>
+        {{ range . }}
+          <a class="btn btn-sm btn-outline-dark tag-btn" href="/tags/{{ urlize . }}">{{ . }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<style>
+  .metadata {
+    margin: auto;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 0.365rem 0.375rem 0.375rem 0.375rem;
+  }
+
+  .hero-image {
+    width: 50%;
+    margin: auto;
+    border-radius: 0.365rem 0.365rem 0.365rem 0.365rem;
+  }
+
+  .title-link {
+    color: black;
+  }
+</style>

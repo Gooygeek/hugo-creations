@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <div class="single-main-container">
+    {{ partial "metadata.html" . }}
+    {{ partial "article-contents.html" .Content }}
+    {{ partial "masonry-gallery.html" .}}
+
+    <style>
+      .single-main-container {
+        width: 80vw;
+        margin: auto;
+      }
+
+      .single-main-container img {
+        width: 100%;
+      }
+    </style>
+  </div>
+{{ end }}

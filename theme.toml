@@ -1,0 +1,12 @@
+name = "Creations"
+license = "MIT"
+licenselink = "https://github.com/Gooygeek/hugo-creations/blob/main/LICENSE"
+description = "A Hugo theme to showcase projects and news while linking to a separate site for selling works"
+homepage = "https://github.com/Gooygeek/hugo-creations"
+tags = ["blog", "portfolio", "showcase", "store"]
+features = []
+min_version = "0.96.0"
+
+[author]
+  name = "Kieran Goldsworthy"
+  homepage = "kgol.xyz"

@@ -1,0 +1,25 @@
+baseURL = 'http://example.xom'
+languageCode = 'en-us'
+title = 'My site'
+
+[menu]
+  [[menu.main]]
+    name = "About"
+    pre = "circle-question-solid"
+    url = "/news/about"
+    weight = 1
+  [[menu.main]]
+    name = "Works"
+    pre = "yarn-ball"
+    url = "/works/"
+    weight = 2
+  [[menu.main]]
+    name = "News"
+    pre = "newspaper-regular"
+    url = "/news/"
+    weight = 3
+  [[menu.main]]
+    name = "Shop"
+    pre = "shop-solid"
+    url = "https://YOUR SHOP SITE HERE"
+    weight = 4

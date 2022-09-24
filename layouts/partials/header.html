@@ -1,0 +1,61 @@
+<div class="header">
+  <nav id="nav" class="nav justify-content-left">
+    <a href="/">
+      <img src="/img/logo.png" class="logo" alt="logo">
+    </a>
+    {{ range .Site.Menus.main }}
+      <a class="nav-link" href="{{ .URL }}">
+        {{ if .Pre }}
+          <div class="nav-link-img position-relative">
+            <img src="/icon/{{ .Pre }}.svg" class="position-absolute top-0 start-50 translate-middle-x"></i>
+        </div>
+        <br>
+      {{ end }}
+      <p class="nav-link-text">{{ .Name }}</p>
+    </a>
+  {{ end }}
+</nav>
+</div>
+
+<style>
+.header {
+  background-color: rgb(27, 27, 27);
+}
+
+.logo {
+  max-height: 5em;
+  margin: 0.5em;
+}
+
+.logo:hover {
+  filter: brightness(150%);
+}
+
+.nav-link {
+  height: 4em;
+  width: 5em;
+  text-align: center;
+  border-radius: 0.25em;
+  background-color: rgb(27, 27, 27);
+  margin: 0.5em;
+  color: orange;
+}
+
+.nav-link:hover {
+  color: yellow;
+}
+
+.nav-link-img {
+  margin-bottom: 0.75em;
+}
+
+.nav-link img {
+  height: 2em;
+  width: 2em;
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(355deg);
+}
+
+.nav-link:hover img {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(355deg) brightness(150%);
+}
+</style>

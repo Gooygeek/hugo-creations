@@ -1,0 +1,45 @@
+<div class="masonry">
+  {{ $relPermaLink := .RelPermalink}}
+  {{ if (or (eq (isset .Params "galleryitems") false) (eq (len .Params.galleryitems) 0)) }}
+    No images in gallery
+  {{ end }}
+  {{ range .Params.galleryitems }}
+    <div class="item"><img src="{{ $relPermaLink }}/{{ . }}" alt=""></div>
+  {{ end }}
+</div>
+
+<style>
+  .masonry {
+    margin: auto;
+    padding: 1em;
+    border: 1px solid black;
+    border-top: 0;
+    border-radius: 0 0 0.365rem 0.375rem;
+
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+  }
+
+  .item {
+    /* Masonry bricks or child elements */
+    background-color: #eee;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+    padding: 0.5em;
+  }
+
+  /* Masonry on medium-sized screens and above */
+  @media only screen and (min-width: 768px) {
+    .masonry {
+      column-count: 3;
+    }
+  }
+
+  /* Masonry on small screens */
+  @media only screen and (max-width: 767px) and (min-width: 540px) {
+    .masonry {
+      column-count: 2;
+    }
+  }
+</style>

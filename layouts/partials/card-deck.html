@@ -1,0 +1,18 @@
+<div class="container text-center">
+  <div class="row">
+    {{ range . }}
+      <div class="col">
+        <div class="card shadow" style="width: 18rem; margin: auto;">
+          <a href="{{ .RelPermalink }}">
+            <img src="{{ .RelPermalink }}/{{ .Params.heroImage }}" class="card-img-top" alt="{{ .Title }}">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ .Title }}</h5>
+            <p class="card-text">{{ .Summary }}.</p>
+            <a href="{{ .RelPermalink }}" class="btn btn-primary">More</a>
+          </div>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+</div>

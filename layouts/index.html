@@ -1,0 +1,37 @@
+{{ define "main" }}
+  <div class="carousel-container">
+    {{ $showcasepages := where .Site.RegularPages "Params.spotlight" true }}
+    {{ partial "carousel.html" $showcasepages }}
+  </div>
+  <hr>
+  <h2 class="text-center">Latest Works</h2>
+  {{ $workscards := where .Site.RegularPages ".Type" "works"  | first 3 }}
+  {{ partial "card-deck.html" $workscards }}
+  <!-- Using a range and looking up a single item seems to be the only way to get the URL for the menu item -->
+  {{ range where .Site.Menus.main ".Name" "Works" }}
+    <div class="more-btn-container text-center">
+      <a href="{{ .URL }}" class="btn btn-primary btn-lg">See More</a>
+    </div>
+  {{ end }}
+
+  <hr>
+  <h2 class="text-center">Latest News</h2>
+  {{ $newscards := where .Site.RegularPages ".Type" "news"  | first 3 }}
+  {{ partial "card-deck.html" $newscards }}
+  <!-- Using a range and looking up a single item seems to be the only way to get the URL for the menu item -->
+  {{ range where .Site.Menus.main ".Name" "News" }}
+    <div class="more-btn-container text-center">
+      <a href="{{ .URL }}" class="btn btn-primary btn-lg">See More</a>
+    </div>
+  {{ end }}
+  <style>
+    .carousel-container {
+      width: 80%;
+      margin: 1em auto auto;
+    }
+
+    .more-btn-container {
+      margin: 1em;
+    }
+  </style>
+{{ end }}
