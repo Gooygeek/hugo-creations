@@ -10,6 +10,9 @@
             <h5 class="card-title">{{ .Title }}</h5>
             <p class="card-text">{{ .Summary }}.</p>
             <a href="{{ .RelPermalink }}" class="btn btn-primary">More</a>
+            {{with .Params.storeurl }}
+              <a href="{{ . }}" class="btn btn-info">Buy Now</a>
+            {{ end }}
           </div>
         </div>
       </div>

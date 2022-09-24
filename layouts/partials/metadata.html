@@ -10,6 +10,10 @@
         <h1>{{ .Title }}</h1>
       </a>
       <p>{{ .Summary }}</p>
+      {{with .Params.storeurl }}
+        <a href="{{ . }}" class="btn btn-info">Buy Now</a>
+      {{ end }}
+      <br>
       {{ $dateTime := .PublishDate.Format "2006-01-02" }}
       {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
       <i data-feather="calendar"></i>
