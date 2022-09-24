@@ -1,11 +1,11 @@
 <div class="metadata text-left shadow">
   <div class="row">
-    <div class="col">
+    <div class="col-sm">
       <a href="{{ .RelPermalink }}">
         <img src="{{ .RelPermalink }}/{{ .Params.heroImage }}" class="hero-image d-block " alt="..." {{ with .Params.heroImageBackgroundColor }} style="background: {{ . }}" {{ end }}>
       </a>
     </div>
-    <div class="col">
+    <div class="col-sm-8">
       <a href="{{ .RelPermalink }}" class="title-link">
         <h1>{{ .Title }}</h1>
       </a>
@@ -27,14 +27,15 @@
 
 <style>
   .metadata {
-    margin: auto;
+    margin: 1em auto auto;
     padding: 1rem;
     border: 1px solid black;
     border-radius: 0.365rem 0.375rem 0.375rem 0.375rem;
   }
 
   .hero-image {
-    width: 50%;
+    max-width: 100%;
+    object-fit: contain;
     margin: auto;
     border-radius: 0.365rem 0.365rem 0.365rem 0.365rem;
   }
