@@ -38,7 +38,7 @@
   border-radius: 0.25em;
   background-color: rgb(27, 27, 27);
   margin: 0.5em;
-  color: orange;
+  color: var(--accent-color);
 }
 
 .nav-link:hover {
@@ -52,10 +52,10 @@
 .nav-link img {
   height: 2em;
   width: 2em;
-  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(355deg);
+  filter: var(--accent-color-filter);
 }
 
 .nav-link:hover img {
-  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(355deg) brightness(150%);
+  filter: var(--accent-color-filter) brightness(150%);
 }
 </style>
