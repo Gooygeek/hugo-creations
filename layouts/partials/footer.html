@@ -1,5 +1,18 @@
 <hr>
-<p class="footer text-center">Copyright ©
-  {{ now.Format "2006"}}
-  {{ .Site.Params.author }}
-</p>
+<div class="footer-div">
+  <p class="footer text-center">Copyright ©
+    {{ now.Format "2006"}}
+    {{ .Site.Params.author }}
+  </p>
+</div>
+
+<style>
+  .footer-div {
+    width: 100%;
+    background-color: var(--accent-color);
+  }
+
+  .footer-div p {
+    padding: 1em;
+  }
+</style>
