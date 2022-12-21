@@ -1,61 +1,113 @@
-<div class="header">
-  <nav id="nav" class="nav justify-content-left">
-    <a href="/">
-      <img src="/img/logo.png" class="logo" alt="logo">
-    </a>
-    {{ range .Site.Menus.main }}
-      <a class="nav-link" href="{{ .URL }}">
-        {{ if .Pre }}
-          <div class="nav-link-img position-relative">
-            <img src="/icon/{{ .Pre }}.svg" class="position-absolute top-0 start-50 translate-middle-x"></i>
-        </div>
-        <br>
-      {{ end }}
-      <p class="nav-link-text">{{ .Name }}</p>
-    </a>
-  {{ end }}
-</nav>
+<div class="header d-flex flex-wrap">
+  <a href="/" class="logo-link">
+    <img src="/img/logo.png" class="logo" alt="logo">
+  </a>
+  <button class="btn btn-warning d-md-none menu-button ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
+    <img src="/icon/list.svg" class="menu-image"></img>
+  </button>
+  <div class="offcanvas-md offcanvas-end" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
+    <div class="offcanvas-header d-md-none">
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav id="nav" class="nav justify-content-left">
+        {{ range .Site.Menus.main }}
+          <a class="nav-link" href="{{ .URL }}">
+            {{ if .Pre }}
+              <div class="nav-link-img position-relative">
+                <img src="/icon/{{ .Pre }}.svg" class="position-absolute top-0 start-50 translate-middle-x"></img>
+              </div>
+              <br>
+            {{ end }}
+            <p class="nav-link-text">{{ .Name }}</p>
+          </a>
+        {{ end }}
+      </nav>
+    </div>
+  </div>
 </div>
 
 <style>
-.header {
-  background-color: rgb(27, 27, 27);
-}
+  .header {
+    background-color: rgb(27, 27, 27);
+  }
 
-.logo {
-  max-height: 5em;
-  margin: 0.5em;
-}
+  .logo-link {
+    text-decoration: none;
+  }
 
-.logo:hover {
-  filter: brightness(150%);
-}
+  .logo {
+    max-height: 5em;
+    margin: 0.5em;
+  }
 
-.nav-link {
-  height: 4em;
-  width: 5em;
-  text-align: center;
-  border-radius: 0.25em;
-  background-color: rgb(27, 27, 27);
-  margin: 0.5em;
-  color: var(--accent-color);
-}
+  .logo:hover {
+    filter: brightness(150%);
+  }
 
-.nav-link:hover {
-  color: yellow;
-}
+  .menu-button {
+    background-color: var(--accent-color);
 
-.nav-link-img {
-  margin-bottom: 0.75em;
-}
+  }
 
-.nav-link img {
-  height: 2em;
-  width: 2em;
-  filter: var(--accent-color-filter);
-}
+  .offcanvas-md {
+    background-color: rgb(27, 27, 27);
+  }
 
-.nav-link:hover img {
-  filter: var(--accent-color-filter) brightness(150%);
-}
+  .nav-link {
+    height: 4em;
+    width: 5em;
+    text-align: center;
+    border-radius: 0.25em;
+    background-color: rgb(27, 27, 27);
+    margin: 0.5em;
+    color: var(--accent-color);
+  }
+
+  .nav-link:hover {
+    color: yellow;
+  }
+
+  .nav-link-img {
+    margin-bottom: 0.75em;
+  }
+
+  .nav-link img {
+    height: 2em;
+    width: 2em;
+    filter: var(--accent-color-filter);
+  }
+
+  .nav-link:hover img {
+    filter: var(--accent-color-filter) brightness(150%);
+  }
+
+  @media (max-width: 377px) {
+    .header {
+      display: block !important;
+      padding-bottom: 0.5em;
+    }
+
+    .logo {
+      margin: auto auto 0.5em;
+      display: block;
+    }
+
+    .menu-button {
+      margin: auto;
+      display: block;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .offcanvas-md {
+      display: inline-block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .offcanvas-md.offcanvas-end {
+      width: 7.5rem;
+    }
+  }
 </style>
