@@ -4,7 +4,7 @@
     No images in gallery
   {{ end }}
   {{ range .Params.galleryitems }}
-    <div class="item"><img src="{{ $relPermaLink }}/{{ . }}" alt=""></div>
+    <div class="item"><img src="{{ $relPermaLink }}{{ . }}" alt=""></div>
   {{ end }}
 </div>
 

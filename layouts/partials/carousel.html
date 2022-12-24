@@ -8,7 +8,7 @@
     {{ range  $index, $page := . }}
       <a href="{{ $page.RelPermalink }}">
         <div class="carousel-item {{ if eq $index 0 }} active {{ end }}">
-          <img src="{{ $page.RelPermalink }}/{{ $page.Params.heroImage }}" class="d-block w-100" alt="..." {{ with $page.Params.heroImageBackgroundColor }} style="background: {{ . }}" {{ end }}>
+          <img src="{{ $page.RelPermalink }}{{ $page.Params.heroImage }}" class="d-block w-100" alt="..." {{ with $page.Params.heroImageBackgroundColor }} style="background: {{ . }}" {{ end }}>
           <div class="carousel-caption d-none d-md-block">
             <span class="badge text-bg-dark fs-5">
               {{ $page.Title }}
