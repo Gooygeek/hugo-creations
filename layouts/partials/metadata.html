@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm">
       <a href="{{ .RelPermalink }}">
-        <img src="{{ .RelPermalink }}{{ .Params.heroImage }}" class="hero-image d-block " alt="..." {{ with .Params.heroImageBackgroundColor }} style="background: {{ . }}" {{ end }}>
+        <img src="{{ .RelPermalink }}{{ .Params.heroImage }}" class="hero-image d-block " alt="Hero image of: {{ .Title }}" {{ with .Params.heroImageBackgroundColor }} style="background: {{ . }}" {{ end }}>
       </a>
     </div>
     <div class="col-sm-8">
@@ -10,8 +10,10 @@
         <h1>{{ .Title }}</h1>
       </a>
       <p>{{ .Summary }}</p>
-      {{with .Params.storeurl }}
-        <a href="{{ . }}" class="btn btn-info">Buy Now</a>
+      {{ with .Params }}
+        {{ if .storeurl }}
+          <a href="{{ .storeurl }}" class="btn btn-info">Buy {{ default "Now" .saletype }}</a>
+        {{ end }}
       {{ end }}
       <br>
       {{ $dateTime := .PublishDate.Format "2006-01-02" }}
