@@ -10,9 +10,14 @@
         <h1>{{ .Title }}</h1>
       </a>
       <p>{{ .Summary }}</p>
-      {{ with .Params }}
-        {{ if .storeurl }}
-          <a href="{{ .storeurl }}" class="btn btn-info">Buy {{ default "Now" .saletype }}</a>
+      {{ if .Params.storeurl }}
+        <a href="{{ .Params.storeurl }}" class="btn btn-info">Buy {{ default "Now" .Params.saletype }}</a>
+      {{ end }}
+      {{ if .Params.downloadurl }}
+        {{ if strings.Contains .Params.downloadurl "https://"}}
+          <a href="{{ .Params.downloadurl }}" class="btn btn-info">Download {{ default "Now" .Params.saletype }}</a>
+        {{else}}
+          <a href="{{ .RelPermalink }}{{ .Params.downloadurl }}" class="btn btn-info">Download {{ default "Now" .Params.saletype }}</a>
         {{ end }}
       {{ end }}
       {{ if .PublishDate }}

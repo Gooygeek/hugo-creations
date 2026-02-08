@@ -30,6 +30,7 @@ For each item in 'news', 'sets' or 'works'
 - galleryitems [list]
 - summary [string]
 - storeurl [string]
+- downloadurl [string]
 
 Example:
 
@@ -44,7 +45,7 @@ tags:
   ]
 sets: ["tam"]
 spotlight: false
-heroImage: img/braided_tam_1.jpg
+heroImage: img/braided_tam_1.jpg # relative to the post's folder
 heroImageBackgroundColor: "#a6a09d"
 galleryitems:
   [
@@ -53,6 +54,7 @@ galleryitems:
   ]
 summary: A tam with 6 braids radiating from the center and a pom pom at the top.
 storeurl: https://www.ravelry.com/patterns/library/braided-tam---beret
+downloadurl: pattern/braided-tam.pdf
 ```
 
 ## Config
