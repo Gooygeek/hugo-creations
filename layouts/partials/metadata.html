@@ -22,14 +22,15 @@
         <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
       {{ end }}
       {{ with .Params.tags }}
-        <i data-feather="tag"></i>
-        {{ range . }}
-          <a class="btn btn-sm btn-outline-dark tag-btn" href="/tags/{{ urlize . }}">{{ . }}</a>
-        {{ end }}
+        <div style="padding: 0.25em 0">
+          <i data-feather="tag"></i>
+          {{ range . }}
+            <a class="btn btn-sm btn-outline-dark tag-btn" href="/tags/{{ urlize . }}">{{ . }}</a>
+          {{ end }}
+        </div>
       {{ end }}
       {{ with .Params.sets }}
-      <br>
-        <div class="nav-link-img position-relative">
+        <div class="nav-link-img position-relative" style="padding: 0.25em 0">
           <img src="/icon/yarn-ball-set.svg" style="width: 2em"></img>
           {{ range . }}
             <a class="btn btn-sm btn-outline-dark tag-btn" href="/sets/{{ urlize . }}">{{ . }}</a>
