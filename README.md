@@ -11,17 +11,19 @@ Example of this theme in action: [Goldsworthy Creations](https://creations.kgol.
   - news
   - search (required to enable search page)
     - index.html
+  - sets
   - works
 ```
 
 ## Post Properties
 
-For each item in 'news' or 'works'
+For each item in 'news', 'sets' or 'works'
 
 - title [string]
 - date [datetime]
 - draft [bool]
 - tags [list]
+- sets [list]
 - spotlight [bool]
 - heroImage [string]
 - heroImageBackgroundColor [string]
@@ -40,6 +42,7 @@ tags:
     "hat",
     "crochet",
   ]
+sets: ["tam"]
 spotlight: false
 heroImage: img/braided_tam_1.jpg
 heroImageBackgroundColor: "#a6a09d"

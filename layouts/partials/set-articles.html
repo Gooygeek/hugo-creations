@@ -1,0 +1,8 @@
+<div class="contents shadow">
+  <h4>Other works in the set</h4>
+  {{ $setfilter := .Params.sets }}
+  {{ $sets := where .Site.RegularPages ".Params.sets" "intersect" $setfilter }}
+  <!-- Filter out the current page -->
+  {{ $sets = where $sets "Permalink" "ne" .Permalink }}
+  {{ partial "card-deck.html" $sets }}
+</div>

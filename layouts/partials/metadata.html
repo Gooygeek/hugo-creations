@@ -15,17 +15,26 @@
           <a href="{{ .storeurl }}" class="btn btn-info">Buy {{ default "Now" .saletype }}</a>
         {{ end }}
       {{ end }}
-      <br>
-      {{ $dateTime := .PublishDate.Format "2006-01-02" }}
-      {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-      <i data-feather="calendar"></i>
-      <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
-      <br>
+      {{ if .PublishDate }}
+        {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+        {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+        <i data-feather="calendar"></i>
+        <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+      {{ end }}
       {{ with .Params.tags }}
         <i data-feather="tag"></i>
         {{ range . }}
           <a class="btn btn-sm btn-outline-dark tag-btn" href="/tags/{{ urlize . }}">{{ . }}</a>
         {{ end }}
+      {{ end }}
+      {{ with .Params.sets }}
+      <br>
+        <div class="nav-link-img position-relative">
+          <img src="/icon/yarn-ball-set.svg" style="width: 2em"></img>
+          {{ range . }}
+            <a class="btn btn-sm btn-outline-dark tag-btn" href="/sets/{{ urlize . }}">{{ . }}</a>
+          {{ end }}
+        </div>
       {{ end }}
     </div>
   </div>
